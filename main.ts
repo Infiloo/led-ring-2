@@ -209,6 +209,23 @@ Mode = 0
 i = 0
 richtung = 1
 farbe = 0
+I2C_LCD1602.LcdInit(0)
+I2C_LCD1602.BacklightOff()
+basic.pause(500)
+I2C_LCD1602.BacklightOn()
+I2C_LCD1602.LcdInit(0)
+I2C_LCD1602.ShowString("Hello", 0, 0)
+I2C_LCD1602.ShowString("Leo", 0, 1)
+I2C_LCD1602.clear()
+basic.forever(function () {
+    I2C_LCD1602.ShowString("Temp:", 0, 0)
+    I2C_LCD1602.ShowNumber(Environment.dht11value(Environment.DHT11Type.DHT11_temperature_C, DigitalPin.P8), 6, 0)
+    basic.pause(2000)
+    I2C_LCD1602.ShowString("Humi:", 0, 0)
+    I2C_LCD1602.ShowNumber(Environment.dht11value(Environment.DHT11Type.DHT11_temperature_C, DigitalPin.P8), 6, 1)
+    basic.pause(2000)
+    I2C_LCD1602.clear()
+})
 basic.forever(function () {
     warte = pins.analogReadPin(AnalogPin.P2)
     if (Mode == 0) {
