@@ -168,6 +168,7 @@ let r3: neopixel.Strip = null
 let r2: neopixel.Strip = null
 let r1: neopixel.Strip = null
 let strip: neopixel.Strip = null
+basic.showIcon(IconNames.LeftTriangle)
 strip = neopixel.create(DigitalPin.P0, 36, NeoPixelMode.RGB)
 r1 = strip.range(0, 1)
 r2 = strip.range(1, 1)
